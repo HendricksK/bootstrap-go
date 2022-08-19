@@ -1,8 +1,8 @@
 package main
 
 import (
-	"os"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
 )
@@ -39,13 +39,12 @@ func main() {
 	port := os.Getenv("PORT")
 
 	if port != "" {
-		router.Run("localhost:" + port)
+		router.Run("0.0.0.0:" + port)
 	} else {
-		router.Run("localhost:5000")
+		router.Run("0.0.0.0:5000")
 	}
 }
 
 func getImageTopics(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, images)
 }
-
